@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  testconn:
+    image: testconn:1.0
+    container_name: testconn
+    ports:
+      - 8080:8080
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first

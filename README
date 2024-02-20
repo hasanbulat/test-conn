@@ -1,0 +1,15 @@
+BUILD BINARY
+============
+go build -o testconn main.go
+
+BUILD IMAGE
+===========
+docker build . -t testconn:1.0
+
+SWARM DEPLOY
+============
+docker stack deploy --compose-file docker-compose.yml testconn
+
+TEST
+====
+curl http://localhost:8080/connect
