@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
 
   testconn:
@@ -7,8 +7,9 @@ services:
     ports:
       - 8080:8080
     deploy:
-      replicas: 3
+      replicas: 1
       update_config:
         parallelism: 1
         delay: 10s
-        order: stop-first
+        order: start-first
+    stop_grace_period: 1m30s

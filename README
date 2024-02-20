@@ -10,6 +10,12 @@ SWARM DEPLOY
 ============
 docker stack deploy --compose-file docker-compose.yml testconn
 
+SWARM UPDATE
+============
+docker service update --replicas=2 testconn_testconn && \
+docker service update --image testconn:1.1 testconn_testconn && \
+docker service update --replicas=1 testconn_testconn
+
 TEST
 ====
-curl http://localhost:8080/connect
+curl -s http://localhost:8080/connect | jq
